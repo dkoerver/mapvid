@@ -1,11 +1,13 @@
 use std::path::Path;
-use mpeg_encoder::Encoder;
+//use mpeg_encoder::Encoder;
 use std::io;
-use std::io::prelude::*;
-use std::fs::File;
+//use std::io::prelude::*;
+//use std::fs::File;
 
 
 pub fn encode(img_dir_path: &Path, target_path: &Path) -> io::Result<()> {
+
+    /**
     println!("Encoding Video to {} given temporary IMG Directory {}...",
              img_dir_path.display(), target_path.display());
 
@@ -17,7 +19,7 @@ pub fn encode(img_dir_path: &Path, target_path: &Path) -> io::Result<()> {
         let mut buffer = Vec::new();
         file.read_to_end(&mut buffer)?;
         encoder.encode_rgb(1920, 1080, buffer.as_mut(), false);
-    }
+    } */
     Ok(())
 }
 

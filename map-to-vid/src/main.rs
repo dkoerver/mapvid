@@ -1,16 +1,12 @@
-mod encode_video;
-mod utils;
+#![feature(proc_macro_hygiene, decl_macro)]
 
-use std::path::Path;
-use crate::encode_video::encode;
+#[macro_use] extern crate rocket;
 
+#[get("/")]
+fn index() -> &'static str {
+    "Hello, world!"
+}
 
 fn main() {
-
-    let result = encode(Path::new(""), Path::new(""));
-
-    match result {
-        Ok(()) => print!("Encode successful"),
-        Err(e) => println!("Encode unsuccessful {}", e)
-    }
+    rocket::ignite().mount("/", routes![index]).launch();
 }
